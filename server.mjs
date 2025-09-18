@@ -2,6 +2,9 @@
 import express from "express";
 import dotenv from "dotenv";
 import connectDB from "./db/conn.mjs";
+import usersRoutes from "./routes/usersRoutes.mjs";
+import AtpostsRoutes from "./routes/AtpostsRoutes.mjs";
+
 
 
 

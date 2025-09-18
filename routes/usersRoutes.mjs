@@ -43,9 +43,10 @@ router
     let deletedUser = await User.findByIdAndDelete(req.params.id);
 
     if(!deletedUser)res.json({msg:"err doesnot exit"});
-    els res.json(deletedUser);
+    else res.json(deletedUser);
  
 });
+
 
 
 
