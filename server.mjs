@@ -4,6 +4,14 @@ import dotenv from "dotenv";
 import connectDB from "./db/conn.mjs";
 import usersRoutes from "./routes/usersRoutes.mjs";
 import AtpostsRoutes from "./routes/AtpostsRoutes.mjs";
+import commentsRoutes from "./routes/commentsRoutes.mjs";
+import global from "./middleware/globalErr.mjs";
+import log from "./middleware/loggingMiddleware.mjs";
+
+
+
+
+
 
 
 
@@ -21,36 +29,22 @@ const PORT = process.env.PORT || 3001;
 
 // Middleware
 app.use(express.json());
-app.use((req,res,next)=>{
-    console.log(`{req.method} -${req.path}`);
-    next();
-
-});
+app.use(log);
 
 
 
 
 // Routes
 
-// app.use("/api/users", usersRoutes);
-// app.use("/api/posts", postsRoutes);
-// app.use("/api/comments", commentsRoutes);
+app.use("/api/Users", usersRoutes);
+app.use("/api/Atposts", AtpostsRoutes);
+app.use("/api/Comments", commentsRoutes);
 
-
-
-
-// app.get("/",(req,res)=>{
-//     res.send("I name  is Seraj ,Testing Home Path");
-
-// }); 
 
 
 // Err.Handling Middleware
 
-app.use((err,req,res,next)=>{
-    res.status(500).json({msg: `Error-${err.message}`});
-    
-})
+app.use(global);
 
 
 

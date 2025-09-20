@@ -6,7 +6,22 @@ import { Atposts} from "../data/data.mjs";
 
 
 
+
 const router = express.Router();
+
+router.get("/seed",async(req,res)=>{
+    try {
+        await AtPost.deleteMany({});
+        await AtPost.insertMany(Atposts);
+
+        res.send("Sucess : database seeded and updated");
+
+    } catch (err) {
+        console.error(err.message);
+        
+    }
+});
+
 
 
 
@@ -42,7 +57,7 @@ router
 // update
 
 .put(async(req,res)=>{
-    let updateAtPost = await AtPost.findById(req.params.id, req.body,{
+    let updateAtPost = await AtPost.findByIdAndUpdate(req.params.id, req.body,{
         new:true,
     });
     res.json(updateAtPost);
@@ -53,18 +68,9 @@ router
 .delete(async(req,res)=>{
     let deletedAtPost = await AtPost.findByIdAndDelete(req.params.id);
     if(!deletedAtPost) res.json({msg:"err doennot exit"});
+    else res.json(deletedAtPost);
 
 });
-
-
-
-
-
-
-
-
-
-
 
 
 export default router;
