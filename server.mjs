@@ -18,6 +18,7 @@ import log from "./middleware/loggingMiddleware.mjs";
 
 
 
+
 // Setup
 dotenv.config();
 const app = express();
@@ -29,6 +30,7 @@ const PORT = process.env.PORT || 3001;
 
 // Middleware
 app.use(express.json());
+app.use(express.urlencoded({extended: true}));
 app.use(log);
 
 
@@ -45,7 +47,6 @@ app.use("/api/Comments", commentsRoutes);
 // Err.Handling Middleware
 
 app.use(global);
-
 
 
 // Listener
