@@ -38,7 +38,7 @@ app.use("/api/Comments", commentsRoutes);
 - DELETE `/api/Atposts/:id` — delete post
 
  Comments
-- GET `/api/Comments` — list comments (`?post=`)
+- GET `/api/Comments` 
 - POST `/api/Comments` — create comment
 - DELETE `/api/Comments/:id` — delete comment
 
