@@ -31,7 +31,7 @@ app.use("/api/Comments", commentsRoutes);
 - DELETE `/api/Users/:id` — delete
 
  AtPosts
-- GET `/api/Atposts` — list posts (query `?tag=`, `?author=`)
+- GET `/api/Atposts` — list posts 
 - GET `/api/Atposts/:id` — get post
 - POST `/api/Atposts` — create post
 - PATCH `/api/Atposts/:id` — update post
@@ -44,3 +44,5 @@ app.use("/api/Comments", commentsRoutes);
 
 
  -->
+<!--  -->
+<!--  -->
